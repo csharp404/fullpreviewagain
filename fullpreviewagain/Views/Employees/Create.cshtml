@@ -1,0 +1,40 @@
+﻿@model fullpreviewagain.Models.Employee
+@{
+    var ActionName = Model == null ? "Create" : "Edit";
+
+}
+<div class="row">
+    <div class="col-md-4">
+<form asp-action="@ActionName" >
+
+ @*    <div class="form-group">
+        <label asp-for="Id" class="lable-control"></label>
+        <input asp-for="Id" class="form-control" />
+    </div> *@
+
+            <div class="form-group">
+                <label asp-for="Name" class="lable-control"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Salary" class="lable-control"></label>
+                <input asp-for="Salary" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" asp-for="DepartmentId" asp-items="@(new SelectList(ViewBag.Departments,"Id","Name"))">
+                    <option value="0">---</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+
+                <input type="submit" class="form-control btn btn-dark" value="Save" />
+
+            </div>
+</form>
+    </div>
+</div>
+    
+

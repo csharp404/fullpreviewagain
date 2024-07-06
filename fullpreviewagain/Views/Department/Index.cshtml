@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Department>
+
+    <table class="table">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(e=>e.Id)
+            </td>
+            <td>
+                @Html.DisplayNameFor(e=>e.Name)
+            </td>
+            <td>
+                @Html.DisplayNameFor(e=>e.manager.Name)
+            </td>
+            <td>
+                Actions
+            </td>
+        </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(e=>item.Id)</td>
+            <td>@Html.DisplayFor(e=>item.Name)</td>
+            <td> @Html.DisplayFor(e=>item.manager.Name) </td>
+            <td></td>
+            <td></td>
+        </tr>
+    }
+</table>

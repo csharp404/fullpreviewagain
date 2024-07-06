@@ -1,0 +1,30 @@
+﻿@model IEnumerable<fullpreviewagain.Models.Employee>
+
+    @{
+        ViewData["Title"] = "Home";
+    }
+<a asp-action="Create" class="btn btn-success">Create</a>
+    <table class="table">
+    <tr>
+       <th>@Html.DisplayNameFor(x=>x.Id)</th>
+       <th>@Html.DisplayNameFor(x=>x.Name)</th>
+       <th>@Html.DisplayNameFor(x=>x.Salary)</th>
+       <th>@Html.DisplayNameFor(x=>x.Department.Name)</th>
+       <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(x=>item.Id)</td>
+            <td>@Html.DisplayFor(x=>item.Name)</td>
+            <td>@Html.DisplayFor(x=>item.Salary)</td>
+            <td>@Html.DisplayFor(x=>item.Department.Name)</td>
+            <td>
+                @Html.ActionLink("Update","Edit",new {Id  = item.Id},new{@class = "btn btn-info"})
+                @Html.ActionLink("Delete", "Delete", new { Id = item.Id }, new { @class = "btn btn-danger" })
+
+            </td>
+        </tr>
+    }
+
+</table>

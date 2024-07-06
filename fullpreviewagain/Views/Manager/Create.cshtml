@@ -1,0 +1,25 @@
+﻿@model fullpreviewagain.Models.Manager
+@{
+    var ActionName = Model == null ? "Create" : "Edit";
+}
+
+
+@using (@Html.BeginForm(ActionName,"Manager",FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(m=>m.Name)
+        @Html.TextBoxFor(m=>m.Name)
+    </div>
+    <div>
+        @Html.LabelFor(m=>m.Price)
+        @Html.TextBoxFor(m=>m.Price)
+    </div>
+    <div>
+        @Html.LabelFor(m=>m.department)
+        @Html.DropDownListFor(m=>m.DepartmentId,new SelectList(ViewBag.DeptList,"Id","Name"))
+    </div>
+
+    <div>
+        <button type="submit">Save</button>
+    </div>
+}

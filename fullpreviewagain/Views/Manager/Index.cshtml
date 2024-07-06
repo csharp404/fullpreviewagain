@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Manager>
+
+    @{
+
+    }
+
+<table class="table">
+    <a asp-action="Create">Create</a>
+    <tr>
+        <td>@Html.DisplayNameFor(m=>m.Id)</td>
+        <td>@Html.DisplayNameFor(m=>m.Name)</td>
+        <td>@Html.DisplayNameFor(m=>m.Price)</td>
+        <td>@Html.DisplayNameFor(m=>m.department.Name)</td>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(sss=>item.Id)</td>
+            <td>@Html.DisplayFor(sss=>item.Name)</td>
+            
+            <td>@Html.DisplayFor(sss=>item.Price)</td>
+            <td>@Html.DisplayFor(sss=>item.department.Name)</td>
+            <td>@Html.ActionLink("Delete","Delete",new{Id=item.Id} , new{@class="btn btn-danger"}) 
+                @Html.ActionLink("Edit", "Edit", new{Id=item.Id}, new{@class="btn btn-info"})
+            </td>
+            
+        </tr>
+    }
+</table>
